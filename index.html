@@ -95,6 +95,9 @@ body {
 			game.camera.follow(player);
 
 			cursors = game.input.keyboard.createCursorKeys();
+			
+			scoretext = game.add.text(10,0,'Exp: 0',{font: '20px    Lucida Sans Unicode',  fill: '#FFFFFF'});
+			lifetext = game.add.text(380,0,'Life: 3', {font: '20px 	Lucida Sans Unicode',  fill: '#FFFFFF'});
 		}
 
 		function update() {
