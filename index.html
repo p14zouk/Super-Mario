@@ -158,6 +158,7 @@ body {
 			} else {
 				if (life > 1){
 					life=life-1;
+					lifetext.text='Life : ' + life;
 					goomba.animations.stop();
 					goomba.frame = 2;
 					goomba.body.enable = false;
