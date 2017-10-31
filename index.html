@@ -13,7 +13,19 @@ body {
 <script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
 </head>
 <body>
+	
+<audio autoplay loop>
+        <source src="assets/Pokemon.mp3" type="audio/mp3">
+</audio>
+	
 	<script type="text/javascript">
+		
+		var score=0;
+    		var scoretext;
+		
+		var life=3;
+    		var lifetext;
+		
 		var game = new Phaser.Game(256, 240, Phaser.CANVAS, '', {
 			preload : preload,
 			create : create,
@@ -125,6 +137,10 @@ body {
 
 		function coinOverlap(player, coin) {
 			coin.kill();
+			score += 5;
+            		scoretext.text='Exp : ' + score;
+            		var audio = new Audio('assets/pokeball.mp3');
+            		audio.play()
 		}
 
 		function goombaOverlap(player, goomba) {
@@ -137,11 +153,22 @@ body {
 					goomba.kill();
 				});
 			} else {
+				if (life > 1){
+					life=life-1;
+					goomba.animations.stop();
+					goomba.frame = 2;
+					goomba.body.enable = false;
+					player.body.velocity.y = -80;
+					game.time.events.add(Phaser.Timer.SECOND, function() {
+					goomba.kill();
+					
+				}else{
 				player.frame = 6;
 				player.body.enable = false;
 				player.animations.stop();
 				game.time.events.add(Phaser.Timer.SECOND * 3, function() {
-					game.paused = true;
+				game.paused = true;
+				}
 				});
 			}
 		}
