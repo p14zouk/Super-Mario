@@ -23,6 +23,9 @@ body {
 		var score=0;
     		var scoretext;
 		
+		var bonus=0;
+    		var bonustext;
+		
 		var life=3;
     		var lifetext;
 		
@@ -96,7 +99,8 @@ body {
 
 			cursors = game.input.keyboard.createCursorKeys();
 			
-			scoretext = game.add.text(10,0,'Exp: 0',{font: '20px    Lucida Sans Unicode',  fill: '#FFFFFF'});
+			scoretext = game.add.text(10,0,'Exp: 0',{font: '20px   Lucida Sans Unicode',  fill: '#FFFFFF'});
+			bonustext = game.add.text(150,0,'Bonus: 0', {font: '20px Lucida Sans Unicode',  fill: '#FFFFFF'});
 			lifetext = game.add.text(380,0,'Life: 3', {font: '20px 	Lucida Sans Unicode',  fill: '#FFFFFF'});
 		}
 
@@ -154,6 +158,9 @@ body {
 				player.body.velocity.y = -80;
 				game.time.events.add(Phaser.Timer.SECOND, function() {
 					goomba.kill();
+					score += 5;
+            				bonustext.text='Bonus : ' + bonus;
+					scoretext.text='Exp : ' + (bonus+score);
 				});
 			} else {
 				if (life > 1){
