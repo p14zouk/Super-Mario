@@ -100,8 +100,16 @@ body {
 			cursors = game.input.keyboard.createCursorKeys();
 			
 			scoretext = game.add.text(10,0,'Exp: 0',{font: '20px   Lucida Sans Unicode',  fill: '#FFFFFF'});
+			scoretext.fixedToCamera = true;
+			scoretext.cameraOffset.setTo(10, 0);
+			
 			bonustext = game.add.text(150,0,'Bonus: 0', {font: '20px Lucida Sans Unicode',  fill: '#8B0000'});
+			bonustext.fixedToCamera = true;
+			bonustext.cameraOffset.setTo(150, 0);
+			
 			lifetext = game.add.text(380,0,'Life: 3', {font: '20px 	Lucida Sans Unicode',  fill: '#FFFFFF'});
+			lifetext.fixedToCamera = true;
+			lifetext.cameraOffset.setTo(380, 0);
 		}
 
 		function update() {
