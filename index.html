@@ -99,15 +99,15 @@ body {
 
 			cursors = game.input.keyboard.createCursorKeys();
 			
-			scoretext = game.add.text(0,0,'Exp: 0',{font: '20px   Lucida Sans Unicode',  fill: '#8B0000'});
+			scoretext = game.add.text(0,0,'Exp:0',{font: '20px   Lucida Sans Unicode',  fill: '#8B0000'});
 			scoretext.fixedToCamera = true;
 			scoretext.cameraOffset.setTo(0,0);
 			
-			bonustext = game.add.text(100,0,'Bonus: 0', {font: '20px Lucida Sans Unicode',  fill: '#8B0000'});
+			bonustext = game.add.text(100,0,'Bonus:0', {font: '20px Lucida Sans Unicode',  fill: '#8B0000'});
 			bonustext.fixedToCamera = true;
 			bonustext.cameraOffset.setTo(100,0);
 			
-			lifetext = game.add.text(200,0,'Life: 3', {font: '20px 	Lucida Sans Unicode',  fill: '#8B0000'});
+			lifetext = game.add.text(200,0,'Life:3', {font: '20px 	Lucida Sans Unicode',  fill: '#8B0000'});
 			lifetext.fixedToCamera = true;
 			lifetext.cameraOffset.setTo(200,0);
 		}
@@ -153,7 +153,7 @@ body {
 		function coinOverlap(player, coin) {
 			coin.kill();
 			score += 5;
-            		 scoretext.text='Exp : ' + (bonus+score);
+            		 scoretext.text='Exp:' + (bonus+score);
             		var audio = new Audio('assets/pokeball.mp3');
             		audio.play()
 		}
@@ -167,13 +167,13 @@ body {
 				game.time.events.add(Phaser.Timer.SECOND, function() {
 					goomba.kill();
 					bonus += 25;
-            				bonustext.text='Bonus : ' + bonus;
-					scoretext.text='Exp : ' + (bonus+score);
+            				bonustext.text='Bonus:' + bonus;
+					scoretext.text='Exp:' + (bonus+score);
 				});
 			} else {
 				if (life > 1){
 					life=life-1;
-					lifetext.text='Life : ' + life;
+					lifetext.text='Life:' + life;
 					goomba.animations.stop();
 					goomba.frame = 2;
 					goomba.body.enable = false;
